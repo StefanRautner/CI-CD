@@ -28,3 +28,11 @@ jobs:
       
       - name: Build App
         run: dotnet build -c Release --no-restore CI-CD.sln
+
+      # Tests
+      #- name: Automated Tests
+      #  run: dotnet test CI-CD.Tests -c Realease --no-build
+      
+      # Publish
+      - name: Publish App
+        run: dotnet publish -c Release -o ./out CI-CD.sln
