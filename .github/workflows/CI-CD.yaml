@@ -36,3 +36,10 @@ jobs:
       # Publish
       - name: Publish App
         run: dotnet publish -c Release -o ./out CI-CD.sln
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: CD-CI
+          publish-profile: ${{ secrets.PUBLISHSETTINGS }}
+          package: ./out
